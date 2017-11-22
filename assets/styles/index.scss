@@ -1,3 +1,18 @@
+body {
+	margin:0;
+	padding:0;
+}
+
+.header-login-signup .header-limiter #show-when-logged-in {
+  display: none;
+}
+
+.message {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .header-login-signup{
 	background-color:#4D576C;
 	box-shadow:0 1px 1px #ccc;
@@ -23,7 +38,7 @@
 }
 
 .header-login-signup .header-limiter h1 span {
-	color: #D37C14;
+	color: #429E4B;
 }
 
 /* The navigation links */
@@ -116,11 +131,4 @@
 		display: none;
 	}
 
-}
-
-/* For the headers to look good, be sure to reset the margin and padding of the body */
-
-body {
-	margin:0;
-	padding:0;
 }
