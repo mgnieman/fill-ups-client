@@ -10,7 +10,14 @@ const getFillUpsSuccess = (data) => {
   // ????????????
   // $('.get').hide()
   // $('.display-add-form').show()
-  $('#message').text('')
+  //
+  // if `fill_ups` has length 0 `{"fill_ups":[]}`
+  if (data.fill_ups.length === 0) {
+    $('#message').text('Click the Add Fill-Up button to get started!')
+  } else {
+  // if user has existing fill_ups
+    $('#message').text('')
+  }
 }
 
 // const clearFillUps = () => {
