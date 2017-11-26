@@ -14,14 +14,14 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Login, Sign up Header</title>
+      <!-- <title>Login, Sign up Header</title> -->
 
-      <link rel="stylesheet" href="assets/demo.css">
-      <link rel="stylesheet" href="assets/header-login-signup.css">
+      <!-- <link rel="stylesheet" href="assets/demo.css"> -->
+      <!-- <link rel="stylesheet" href="assets/header-login-signup.css"> -->
       <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     </head>
 
-      <body>
+      <body class="container-fluid">
 
       <header class="header-login-signup">
         	<div class="header-limiter">
@@ -43,18 +43,23 @@
         		</nav> -->
 
         		<ul>
-        			<!-- <li class="hide-when-logged-in"><a href="#">Create an Account</a></li> -->
-              <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#signupModal">Create an Account</a></li>
-              <!-- <li class="hide-when-logged-in"><a href="#">Login</a></li> -->
-              <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-              <li id="show-when-logged-in"><a href="#" data-toggle="modal" data-target="#passwordModal">Change Password</a></li>
-              <li id="show-when-logged-in"><a href="#" id="sign-out" class="signOutLink">Logout</a></li>
+              <li class="hide-when-logged-in"><a href="#signupModal" data-toggle="modal">Create Account</a></li>
+              <!-- <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li> -->
+              <!-- <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li> -->
+              <li class="hide-when-logged-in"><a href="#loginModal" data-toggle="modal">Login</a></li>
+              <li class="show-when-logged-in"><a href="#" data-toggle="modal" data-target="#passwordModal">Change Password</a></li>
+              <!-- <li class="show-when-logged-in" id="change-password"><a href="#passwordModal" data-toggle="modal">Change Password</a></li>
+              <li class="show-when-logged-in" id="sign-out"><a href="#signOutLink">Logout</a></li> -->
+              <li class="show-when-logged-in"><a href="#" id="sign-out" class="signOutLink">Logout</a></li>
         		</ul>
 
           <!-- navbar-inverse -->
         	<!-- </div> -->
         </div>
       </header>
+
+      <h3>Gas Tracker</h3>
+      <div id='message'></div>
 
         <!--MODALS ////////////////////////////////////// -->
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -78,28 +83,26 @@
         </div>
         </div>
         <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-          <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-               <div class="modal-header">
-                <h2 class="modal-title">Sign Up</h2>
-                <span id="signup-message"></span>
-               </div>
-            <form class="form-horizontal" id="sign-up">
-              <!-- <div class="form-group"> -->
-                <input type="email" name="credentials[email]" id="sign-up-email" class="form-control" placeholder="Email">
-                <input type="password" name="credentials[password]" id="sign-up-password" class="form-control" placeholder="Password" required>
-                <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" class="form-control" placeholder="Confirm Password">
-                 <div class="modal-body">
-                   <br>
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                 <div class="modal-header">
+                   <h2 class="modal-title">Sign Up</h2>
+                   <span id="signup-message"></span>
                  </div>
-                 <div class="modal-footer">
-                   <button type="button" class="btn btn-secondary" id="clearSignup" data-dismiss="modal">Cancel</button>
-                   <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
-                </div>
-              <!-- </div> -->
-            </form>
+                 <form class="form-horizontal" id="sign-up">
+                   <input type="email" name="credentials[email]" id="sign-up-email" class="form-control" placeholder="Email">
+                   <input type="password" name="credentials[password]" id="sign-up-password" class="form-control" placeholder="Password" required>
+                   <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" class="form-control" placeholder="Confirm Password">
+                   <div class="modal-body">
+                     <br>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" id="clearSignup" data-dismiss="modal">Cancel</button>
+                     <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+                  </div>
+              </form>
+            </div>
           </div>
-        </div>
         </div>
         <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-dialog modal-sm">

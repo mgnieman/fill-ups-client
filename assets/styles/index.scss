@@ -1,11 +1,12 @@
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
 	margin:0;
 	padding:0;
 }
 
-.header-login-signup .header-limiter #show-when-logged-in {
+.header-login-signup .header-limiter .show-when-logged-in {
   display: none;
 }
 
@@ -133,4 +134,11 @@ body {
 		display: none;
 	}
 
+}
+
+// Forms/Modals
+.form-horizontal {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 20px;
 }
