@@ -2,6 +2,8 @@
 
 const store = require('../store')
 
+const fillUpsEvents = require('../fill-ups/events.js')
+
 const signUpFailure = function () {
   $('#signup-message').text('Error on sign up. Please try again.')
 }
@@ -15,6 +17,9 @@ const signInSuccess = function (response) {
   $('.hide-when-logged-in').hide()
   $('#signupModal').modal('hide')
   $('#sign-up')[0].reset()
+  //
+  fillUpsEvents.getFillUps()
+  //
 }
 
 const signInFailure = function () {
