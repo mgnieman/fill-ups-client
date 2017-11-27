@@ -28,6 +28,7 @@ const clearFillUps = () => {
 const displayAddForm = () => {
   $('#add-button').hide()
   $('.update-form').hide()
+  $('.content').hide()
   $('.add-fill-up').show()
 }
 
@@ -47,6 +48,7 @@ const deleteFillUpSuccess = (index) => {
 const triggerEditForm = (event) => {
   $('#add-button').hide()
   $('.add-fill-up').hide()
+  $('.content').hide()
   $('.update-form').show()
   const tr = $(event.target).parent().parent()
 
@@ -77,7 +79,7 @@ const updateFillUpSuccess = () => {
   $('.update-form').hide()
 
   // $('.add-fill-up').hide()
-  // $('#add-button').show()
+  $('#add-button').show()
 
   // $('#getFillUpsButton').click()
 
