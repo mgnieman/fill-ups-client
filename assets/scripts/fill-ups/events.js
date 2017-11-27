@@ -22,6 +22,7 @@ const onAddFillUp = (event) => {
   const data = getFormFields(event.target)
   api.addFillUp(data)
     .then(ui.addFillUpSuccess)
+    .then(getFillUps)
     .catch(ui.failure)
 }
 // const onDeleteFillUp = (event) => {

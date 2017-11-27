@@ -27,14 +27,13 @@ const displayAddForm = () => {
   $('.add-fill-up-form').show()
 }
 
-// const addFillUpSuccess = (data) => {
-//   store.fill-upId = data.fill-up.id
-//   $('#add-fill-up')[0].reset()
-//   $('.add-new-fill-up').hide()
-//   $('#message').text('Your fill-up has been added. Select Get FillUps to view all your fill-ups')
-//   $('.get').show()
-// }
-//
+const addFillUpSuccess = (data) => {
+  $('.add-button').hide()
+  $('#add-fill-up')[0].reset()
+  // CLEAR THE TABLE
+  clearFillUps()
+}
+
 // const deleteFillUpSuccess = (index) => {
 //   clearFillUps()
 //   $('#getFillUpsButton').click()
@@ -78,6 +77,7 @@ module.exports = {
   getFillUpsSuccess,
   clearFillUps,
   displayAddForm,
+  addFillUpSuccess,
   // deleteFillUpSuccess,
   // editFillUpSuccess,
   // updateFillUpSuccess,

@@ -12,16 +12,16 @@ const getFillUps = function () {
     }
   })
 }
-// const addFillUp = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/fill_ups',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const addFillUp = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/fill_ups',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 // const deleteFillUp = function (data) {
 //   return $.ajax({
 //     url: config.apiOrigin + '/fill_ups/' + data,
@@ -43,8 +43,8 @@ const getFillUps = function () {
 // }
 
 module.exports = {
-  getFillUps
-  // addFillUp,
+  getFillUps,
+  addFillUp
   // deleteFillUp,
   // updateFillUp
 }
