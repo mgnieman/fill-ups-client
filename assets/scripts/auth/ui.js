@@ -3,6 +3,7 @@
 const store = require('../store')
 
 const fillUpsEvents = require('../fill-ups/events.js')
+const fillUpsUi = require('../fill-ups/ui.js')
 
 const signUpFailure = function () {
   $('#signup-message').text('Error on sign up. Please try again.')
@@ -27,11 +28,11 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
-  $('#message').text('You have successfully signed out.')
   store.user = null
-  $('.hide-when-logged-in').show()
+  fillUpsUi.clearFillUps()
   $('.show-when-logged-in').hide()
-  $('.cart-content').empty()
+  $('.hide-when-logged-in').show()
+  $('#message').text('You have successfully signed out.')
 }
 
 const signOutFailure = function () {
@@ -39,9 +40,9 @@ const signOutFailure = function () {
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Password changed successfully.')
   $('#passwordModal').modal('hide')
   $('#change-password')[0].reset()
+  $('#message').text('Password changed successfully.')
 }
 
 const changePasswordFailure = function () {

@@ -15,13 +15,14 @@ const getFillUpsSuccess = (data) => {
     $('#message').text('Click the Add Fill-Up button to get started!')
   } else {
     $('#message').text('')
+    $('.table-name').show()
   }
 }
 
-// const clearFillUps = () => {
-//   $('.content').empty()
-// }
-//
+const clearFillUps = () => {
+  $('.content').empty()
+}
+
 // const addNewFillUp = () => {
 //   $('.get').hide()
 //   $('.content').hide()
@@ -81,7 +82,7 @@ module.exports = {
   getFillUpsSuccess,
   // addNewFillUp,
   // addFillUpSuccess,
-  // clearFillUps,
+  clearFillUps,
   // deleteFillUpSuccess,
   // editFillUpSuccess,
   // updateFillUpSuccess,
