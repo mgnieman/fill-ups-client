@@ -24,12 +24,7 @@ const clearFillUps = () => {
 }
 
 const displayAddForm = () => {
-  // $('.get').hide()
-  // $('.content').hide()
-  // $('.display-add-form').hide()
-  // $('.update').hide()
-  // $('.add-new-fill-up').show()
-  console.log('displayAddForm works')
+  $('.add-fill-up-form').show()
 }
 
 // const addFillUpSuccess = (data) => {

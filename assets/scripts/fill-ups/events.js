@@ -15,8 +15,7 @@ const getFillUps = () => {
 
 const onAddButton = (event) => {
   event.preventDefault()
-  // ui.displayAddForm()
-  // console.log('onAddButton works')
+  ui.displayAddForm()
 }
 const onAddFillUp = (event) => {
   event.preventDefault()
@@ -49,7 +48,7 @@ const onAddFillUp = (event) => {
 // }
 const addHandlers = () => {
   // $('#addButton').on('click', onAddButton)
-  $('#add-button').on('click', console.log('add-button works'))
+  $('#add-button').on('click', onAddButton)
   $('#add-fill-up').on('submit', onAddFillUp)
 
   // PROBABLY DON'T NEED THIS
