@@ -4,7 +4,7 @@ const showFillUpsTemplate = require('../templates/fill-up-listing.handlebars')
 // const store = require('../store')
 
 const getFillUpsSuccess = (data) => {
-  // clearFillUps()
+  clearFillUps()
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   // ????????????
@@ -33,7 +33,7 @@ const displayAddForm = () => {
 }
 
 const addFillUpSuccess = (data) => {
-  clearFillUps()
+  // clearFillUps()
   $('#add-fill-up')[0].reset()
   $('.add-fill-up').hide()
   $('#add-button').show()

@@ -44,7 +44,7 @@ const onUpdate = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.updateFillUp(data)
-    .then(ui.clearFillUps)
+    // .then(ui.clearFillUps)
     .then(getFillUps)
     .then(ui.updateFillUpSuccess)
     .catch(ui.failure)
