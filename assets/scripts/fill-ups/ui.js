@@ -24,14 +24,16 @@ const clearFillUps = () => {
 }
 
 const displayAddForm = () => {
-  $('.add-fill-up-form').show()
+  $('#add-button').hide()
+  $('.add-fill-up').show()
 }
 
 const addFillUpSuccess = (data) => {
+  clearFillUps()
   $('.add-button').hide()
   $('#add-fill-up')[0].reset()
-  // CLEAR THE TABLE
-  clearFillUps()
+  $('.add-fill-up').hide()
+  $('#add-button').show()
 }
 
 // const deleteFillUpSuccess = (index) => {
