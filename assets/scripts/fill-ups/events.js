@@ -58,12 +58,20 @@ const clearSignUpForm = () => {
 const clearChangePassForm = () => {
   $('#change-password')[0].reset()
 }
+const cancelAdd = () => {
+  $('#add-fill-up')[0].reset()
+  $('.add-fill-up').hide()
+  $('#add-button').show()
+  $('.content').show()
+}
+
 const addHandlers = () => {
   $('#add-button').on('click', onAddButton)
   $('#add-fill-up').on('submit', onAddFillUp)
   $('#loginModal').on('hidden.bs.modal', clearLoginForm)
   $('#signupModal').on('hidden.bs.modal', clearSignUpForm)
   $('#passwordModal').on('hidden.bs.modal', clearChangePassForm)
+  $('#cancelAdd').on('click', cancelAdd)
 
   // PROBABLY DON'T NEED THIS
   // $('#getFillUpsButton').on('click', getFillUps)
