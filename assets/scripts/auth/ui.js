@@ -31,6 +31,7 @@ const signOutSuccess = function () {
   store.user = null
   fillUpsUi.clearFillUps()
   $('.show-when-logged-in').hide()
+  $('.content').hide()
   $('.hide-when-logged-in').show()
   $('#message').text('You have successfully signed out.')
 }
