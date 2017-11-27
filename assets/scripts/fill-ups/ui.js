@@ -13,7 +13,7 @@ const getFillUpsSuccess = (data) => {
   //
   if (data.fill_ups.length === 0) {
     $('.content').hide()
-    $('#message').text('Click the Add Fill-Up button to get started!')
+    $('#message').text('Click the Add Fill-Up button to get started')
   } else {
     $('#message').text('')
     // $('.table-name').show()
@@ -40,8 +40,8 @@ const addFillUpSuccess = (data) => {
 
 const deleteFillUpSuccess = (index) => {
   clearFillUps()
-  // $('#getFillUpsButton').click()
-  $('#message').text('Delete was successful')
+  $('.add-fill-up').hide()
+  $('#add-button').show()
 }
 
 // const editFillUpSuccess = (event) => {

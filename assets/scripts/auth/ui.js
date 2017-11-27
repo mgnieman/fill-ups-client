@@ -15,6 +15,7 @@ const signInSuccess = function (response) {
   $('#signupModal').modal('hide')
   $('#loginModal').modal('hide')
   $('.show-when-logged-in').show()
+  $('#add-button').show()
   $('#message').text('You are now signed in.')
   fillUpsEvents.getFillUps()
 }
@@ -28,6 +29,7 @@ const signOutSuccess = function () {
   fillUpsUi.clearFillUps()
   $('.show-when-logged-in').hide()
   $('.content').hide()
+  $('.add-fill-up').hide()
   $('.hide-when-logged-in').show()
   $('#message').text('You have successfully signed out.')
 }
