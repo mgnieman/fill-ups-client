@@ -22,15 +22,15 @@ const addFillUp = function (data) {
     data: data
   })
 }
-// const deleteFillUp = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/fill_ups/' + data,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const deleteFillUp = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/fill_ups/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 // const updateFillUp = function (data) {
 //   return $.ajax({
 //     url: config.apiOrigin + '/fill_ups/' + data.fill-up.id,
@@ -44,7 +44,7 @@ const addFillUp = function (data) {
 
 module.exports = {
   getFillUps,
-  addFillUp
-  // deleteFillUp,
+  addFillUp,
+  deleteFillUp
   // updateFillUp
 }

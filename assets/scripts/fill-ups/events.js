@@ -8,7 +8,7 @@ const getFillUps = () => {
   api.getFillUps()
     .then((data) => {
       ui.getFillUpsSuccess(data)
-      // addRowHandlers()
+      addRowHandlers()
     })
     .catch(ui.failure)
 }
@@ -25,15 +25,16 @@ const onAddFillUp = (event) => {
     .then(getFillUps)
     .catch(ui.failure)
 }
-// const onDeleteFillUp = (event) => {
-//   event.preventDefault()
-//   const index = $(event.target).attr('data-id')
-//   api.deleteFillUp(index)
-//     .then(() => {
-//       ui.deleteFillUpSuccess(index)
-//     })
-//     .catch(ui.failure)
-// }
+const onDeleteFillUp = (event) => {
+  event.preventDefault()
+  const index = $(event.target).attr('data-id')
+  api.deleteFillUp(index)
+    .then(() => {
+      ui.deleteFillUpSuccess(index)
+    })
+    .then(getFillUps)
+    .catch(ui.failure)
+}
 // const onEditFillUp = () => {
 //   ui.editFillUpSuccess(event)
 //   const index = $(event.target).attr('data-id')
@@ -68,10 +69,11 @@ const addHandlers = () => {
   // $('#getFillUpsButton').on('click', getFillUps)
   //
 }
-// const addRowHandlers = () => {
-//   $('.deleteFillUpButton').on('click', onDeleteFillUp)
-//   $('.editFillUpButton').on('click', onEditFillUp)
-// }
+const addRowHandlers = () => {
+  // $('.deleteFillUpButton').on('click', console.log('kill da noize'))
+  $('.deleteFillUpButton').on('click', onDeleteFillUp)
+  // $('.editFillUpButton').on('click', onEditFillUp)
+}
 // const addUpdateHandlers = () => {
 //   $('#update-fill-up').on('submit', onUpdateFillUp)
 // }

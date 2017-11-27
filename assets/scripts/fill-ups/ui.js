@@ -38,12 +38,12 @@ const addFillUpSuccess = (data) => {
   $('#add-button').show()
 }
 
-// const deleteFillUpSuccess = (index) => {
-//   clearFillUps()
-//   $('#getFillUpsButton').click()
-//   $('#message').text('Your fill-up has been deleted')
-// }
-//
+const deleteFillUpSuccess = (index) => {
+  clearFillUps()
+  // $('#getFillUpsButton').click()
+  $('#message').text('Delete was successful')
+}
+
 // const editFillUpSuccess = (event) => {
 //   $('.update').show()
 //   const tr = $(event.target).parent().parent()
@@ -82,7 +82,7 @@ module.exports = {
   clearFillUps,
   displayAddForm,
   addFillUpSuccess,
-  // deleteFillUpSuccess,
+  deleteFillUpSuccess,
   // editFillUpSuccess,
   // updateFillUpSuccess,
   failure
