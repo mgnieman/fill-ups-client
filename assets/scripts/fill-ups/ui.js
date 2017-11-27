@@ -12,10 +12,12 @@ const getFillUpsSuccess = (data) => {
   // $('.display-add-form').show()
   //
   if (data.fill_ups.length === 0) {
+    $('.content').hide()
     $('#message').text('Click the Add Fill-Up button to get started!')
   } else {
     $('#message').text('')
-    $('.table-name').show()
+    // $('.table-name').show()
+    $('.content').show()
   }
 }
 
