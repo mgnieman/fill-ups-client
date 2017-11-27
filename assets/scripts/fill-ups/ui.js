@@ -44,26 +44,31 @@ const deleteFillUpSuccess = (index) => {
   $('#add-button').show()
 }
 
-// const editFillUpSuccess = (event) => {
-//   $('.update').show()
-//   const tr = $(event.target).parent().parent()
-//
-//   const date = tr.find('td.fill-up-date').text()
-//   const dateField = $('#update-fill-up').find('input[name="fill-up[date]"]')
-//   dateField.attr('value', date)
-//
-//   const distance = tr.find('td.fill-up-distance').text()
-//   const distanceField = $('#update-fill-up').find('input[name="fill-up[distance]"]')
-//   distanceField.attr('value', distance)
-//
-//   const duration = tr.find('td.fill-up-duration').text()
-//   const durationField = $('#update-fill-up').find('input[name="fill-up[duration]"]')
-//   durationField.attr('value', duration)
-//
-//   const id = $(event.target).attr('data-id')
-//   const idField = $('#update-fill-up').find('input[name="fill-up[id]"]')
-//   idField.attr('value', id)
-// }
+const triggerEditForm = (event) => {
+  $('.update-form').show()
+  const tr = $(event.target).parent().parent()
+  console.log('tr is', tr)
+
+  const date = tr.find('td.fill_up-date').text()
+  const dateField = $('#update').find('input[name="fill_up[date]"]')
+  dateField.attr('value', date)
+
+  const mileage = tr.find('td.fill_up-mileage').text()
+  const mileageField = $('#update').find('input[name="fill_up[mileage]"]')
+  mileageField.attr('value', mileage)
+
+  const gallons = tr.find('td.fill_up-gallons').text()
+  const gallonsField = $('#update').find('input[name="fill_up[gallons]"]')
+  gallonsField.attr('value', gallons)
+
+  const price = tr.find('td.fill_up-price').text()
+  const priceField = $('#update').find('input[name="fill_up[price]"]')
+  priceField.attr('value', price)
+  //
+  const id = $(event.target).attr('data-id')
+  const idField = $('#update').find('input[name="fill_up[id]"]')
+  idField.attr('value', id)
+}
 //
 // const updateFillUpSuccess = () => {
 //   clearFillUps()
@@ -83,6 +88,7 @@ module.exports = {
   displayAddForm,
   addFillUpSuccess,
   deleteFillUpSuccess,
+  triggerEditForm,
   // editFillUpSuccess,
   // updateFillUpSuccess,
   failure

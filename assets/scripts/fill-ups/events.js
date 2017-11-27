@@ -12,7 +12,6 @@ const getFillUps = () => {
     })
     .catch(ui.failure)
 }
-
 const onAddButton = (event) => {
   event.preventDefault()
   ui.displayAddForm()
@@ -35,12 +34,12 @@ const onDeleteFillUp = (event) => {
     .then(getFillUps)
     .catch(ui.failure)
 }
-// const onEditFillUp = () => {
-//   ui.editFillUpSuccess(event)
-//   const index = $(event.target).attr('data-id')
-//   addUpdateHandlers()
-//   return index
-// }
+const triggerEditForm = () => {
+  ui.triggerEditForm(event)
+  const index = $(event.target).attr('data-id')
+  // addUpdateHandlers()
+  return index
+}
 // const onUpdateFillUp = (event) => {
 //   event.preventDefault()
 //   const data = getFormFields(event.target)
@@ -58,7 +57,6 @@ const clearChangePassForm = () => {
   $('#change-password')[0].reset()
 }
 const addHandlers = () => {
-  // $('#addButton').on('click', onAddButton)
   $('#add-button').on('click', onAddButton)
   $('#add-fill-up').on('submit', onAddFillUp)
   $('#loginModal').on('hidden.bs.modal', clearLoginForm)
@@ -70,9 +68,8 @@ const addHandlers = () => {
   //
 }
 const addRowHandlers = () => {
-  // $('.deleteFillUpButton').on('click', console.log('kill da noize'))
   $('.deleteFillUpButton').on('click', onDeleteFillUp)
-  // $('.editFillUpButton').on('click', onEditFillUp)
+  $('.editFillUpButton').on('click', triggerEditForm)
 }
 // const addUpdateHandlers = () => {
 //   $('#update-fill-up').on('submit', onUpdateFillUp)
