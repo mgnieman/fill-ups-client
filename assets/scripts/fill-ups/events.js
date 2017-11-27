@@ -47,10 +47,22 @@ const onAddFillUp = (event) => {
 //     .then(ui.updateFillUpSuccess)
 //     .catch(ui.failure)
 // }
+const clearLoginForm = () => {
+  $('#login')[0].reset()
+}
+const clearSignUpForm = () => {
+  $('#sign-up')[0].reset()
+}
+const clearChangePassForm = () => {
+  $('#change-password')[0].reset()
+}
 const addHandlers = () => {
   // $('#addButton').on('click', onAddButton)
   $('#add-button').on('click', onAddButton)
   $('#add-fill-up').on('submit', onAddFillUp)
+  $('#loginModal').on('hidden.bs.modal', clearLoginForm)
+  $('#signupModal').on('hidden.bs.modal', clearSignUpForm)
+  $('#passwordModal').on('hidden.bs.modal', clearChangePassForm)
 
   // PROBABLY DON'T NEED THIS
   // $('#getFillUpsButton').on('click', getFillUps)

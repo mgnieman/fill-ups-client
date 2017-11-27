@@ -10,17 +10,15 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
-  $('#message').text('You are now signed in.')
   store.user = response.user
-  $('#loginModal').modal('hide')
-  $('#login')[0].reset()
-  $('.show-when-logged-in').show()
   $('.hide-when-logged-in').hide()
   $('#signupModal').modal('hide')
-  $('#sign-up')[0].reset()
-  //
+  $('#loginModal').modal('hide')
+  // $('#sign-up')[0].reset()
+  // $('#login')[0].reset()
+  $('.show-when-logged-in').show()
+  $('#message').text('You are now signed in.')
   fillUpsEvents.getFillUps()
-  //
 }
 
 const signInFailure = function () {
@@ -42,7 +40,7 @@ const signOutFailure = function () {
 
 const changePasswordSuccess = function () {
   $('#passwordModal').modal('hide')
-  $('#change-password')[0].reset()
+  // $('#change-password')[0].reset()
   $('#message').text('Password changed successfully.')
 }
 
