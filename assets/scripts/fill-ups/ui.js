@@ -27,12 +27,12 @@ const clearFillUps = () => {
 
 const displayAddForm = () => {
   $('#add-button').hide()
+  $('.update-form').hide()
   $('.add-fill-up').show()
 }
 
 const addFillUpSuccess = (data) => {
   clearFillUps()
-  $('.add-button').hide()
   $('#add-fill-up')[0].reset()
   $('.add-fill-up').hide()
   $('#add-button').show()
@@ -45,9 +45,10 @@ const deleteFillUpSuccess = (index) => {
 }
 
 const triggerEditForm = (event) => {
+  $('#add-button').hide()
+  $('.add-fill-up').hide()
   $('.update-form').show()
   const tr = $(event.target).parent().parent()
-  console.log('tr is', tr)
 
   const date = tr.find('td.fill_up-date').text()
   const dateField = $('#update').find('input[name="fill_up[date]"]')
@@ -69,14 +70,19 @@ const triggerEditForm = (event) => {
   const idField = $('#update').find('input[name="fill_up[id]"]')
   idField.attr('value', id)
 }
-//
-// const updateFillUpSuccess = () => {
-//   clearFillUps()
-//   $('#getFillUpsButton').click()
-//   $('#message').text('Your changes have been saved')
-//   $('#update-fill-up')[0].reset()
-//   $('.update').hide()
-// }
+
+const updateFillUpSuccess = () => {
+  // clearFillUps()
+  $('#update')[0].reset()
+  $('.update-form').hide()
+
+  // $('.add-fill-up').hide()
+  // $('#add-button').show()
+
+  // $('#getFillUpsButton').click()
+
+  $('#message').text('Your changes have been saved')
+}
 
 const failure = () => {
   $('#message').text('Something went wrong, please try again')
@@ -90,6 +96,6 @@ module.exports = {
   deleteFillUpSuccess,
   triggerEditForm,
   // editFillUpSuccess,
-  // updateFillUpSuccess,
+  updateFillUpSuccess,
   failure
 }

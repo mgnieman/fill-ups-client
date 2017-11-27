@@ -37,16 +37,18 @@ const onDeleteFillUp = (event) => {
 const triggerEditForm = () => {
   ui.triggerEditForm(event)
   const index = $(event.target).attr('data-id')
-  // addUpdateHandlers()
+  addUpdateHandlers()
   return index
 }
-// const onUpdateFillUp = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.updateFillUp(data)
-//     .then(ui.updateFillUpSuccess)
-//     .catch(ui.failure)
-// }
+const onUpdate = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.updateFillUp(data)
+    .then(ui.clearFillUps)
+    .then(getFillUps)
+    .then(ui.updateFillUpSuccess)
+    .catch(ui.failure)
+}
 const clearLoginForm = () => {
   $('#login')[0].reset()
 }
@@ -71,9 +73,9 @@ const addRowHandlers = () => {
   $('.deleteFillUpButton').on('click', onDeleteFillUp)
   $('.editFillUpButton').on('click', triggerEditForm)
 }
-// const addUpdateHandlers = () => {
-//   $('#update-fill-up').on('submit', onUpdateFillUp)
-// }
+const addUpdateHandlers = () => {
+  $('#update').on('submit', onUpdate)
+}
 
 module.exports = {
   addHandlers,

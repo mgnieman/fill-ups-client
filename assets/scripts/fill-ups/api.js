@@ -31,20 +31,20 @@ const deleteFillUp = function (data) {
     }
   })
 }
-// const updateFillUp = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/fill_ups/' + data.fill-up.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const updateFillUp = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/fill_ups/' + data.fill_up.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 
 module.exports = {
   getFillUps,
   addFillUp,
-  deleteFillUp
-  // updateFillUp
+  deleteFillUp,
+  updateFillUp
 }
