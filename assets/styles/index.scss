@@ -9,19 +9,23 @@ body {
 .header-login-signup .header-limiter .show-when-logged-in {
   display: none;
 }
+.show-when-logged-in {
+  display: none;
+}
+.content {
+  display: none;
+}
+.table-name {
+	display: none;
+}
+.add-fill-up-form {
+	display: none;
+}
 
 .message {
   font-size: 24px;
   text-align: center;
   margin-bottom: 10px;
-}
-
-.content {
-  display: none;
-}
-
-.table-name {
-	display: none;
 }
 
 .header-login-signup{

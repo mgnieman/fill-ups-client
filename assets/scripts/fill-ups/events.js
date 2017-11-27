@@ -2,7 +2,7 @@
 
 const api = require('./api.js')
 const ui = require('./ui.js')
-// const getFormFields = require('../../../lib/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const getFillUps = () => {
   api.getFillUps()
@@ -13,17 +13,18 @@ const getFillUps = () => {
     .catch(ui.failure)
 }
 
-// const onAddNewFillUp = (event) => {
-//   event.preventDefault()
-//   ui.addNewFillUp()
-// }
-// const onAddFillUp = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.addFillUp(data)
-//     .then(ui.addFillUpSuccess)
-//     .catch(ui.failure)
-// }
+const onAddButton = (event) => {
+  event.preventDefault()
+  // ui.displayAddForm()
+  // console.log('onAddButton works')
+}
+const onAddFillUp = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.addFillUp(data)
+    .then(ui.addFillUpSuccess)
+    .catch(ui.failure)
+}
 // const onDeleteFillUp = (event) => {
 //   event.preventDefault()
 //   const index = $(event.target).attr('data-id')
@@ -47,8 +48,9 @@ const getFillUps = () => {
 //     .catch(ui.failure)
 // }
 const addHandlers = () => {
-  // $('#addNewFillUpButton').on('click', onAddNewFillUp)
-  // $('#add-fill-up').on('submit', onAddFillUp)
+  // $('#addButton').on('click', onAddButton)
+  $('#add-button').on('click', console.log('add-button works'))
+  $('#add-fill-up').on('submit', onAddFillUp)
 
   // PROBABLY DON'T NEED THIS
   // $('#getFillUpsButton').on('click', getFillUps)

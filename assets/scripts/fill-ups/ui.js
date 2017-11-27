@@ -23,14 +23,15 @@ const clearFillUps = () => {
   $('.content').empty()
 }
 
-// const addNewFillUp = () => {
-//   $('.get').hide()
-//   $('.content').hide()
-//   $('.display-add-form').hide()
-//   $('.update').hide()
-//   $('.add-new-fill-up').show()
-// }
-//
+const displayAddForm = () => {
+  // $('.get').hide()
+  // $('.content').hide()
+  // $('.display-add-form').hide()
+  // $('.update').hide()
+  // $('.add-new-fill-up').show()
+  console.log('displayAddForm works')
+}
+
 // const addFillUpSuccess = (data) => {
 //   store.fill-upId = data.fill-up.id
 //   $('#add-fill-up')[0].reset()
@@ -80,9 +81,8 @@ const failure = () => {
 
 module.exports = {
   getFillUpsSuccess,
-  // addNewFillUp,
-  // addFillUpSuccess,
   clearFillUps,
+  displayAddForm,
   // deleteFillUpSuccess,
   // editFillUpSuccess,
   // updateFillUpSuccess,
