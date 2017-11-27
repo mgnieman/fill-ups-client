@@ -64,6 +64,12 @@ const cancelAdd = () => {
   $('#add-button').show()
   $('.content').show()
 }
+const cancelEdit = () => {
+  $('#update')[0].reset()
+  $('.update-form').hide()
+  $('#add-button').show()
+  $('.content').show()
+}
 
 const addHandlers = () => {
   $('#add-button').on('click', onAddButton)
@@ -83,6 +89,7 @@ const addRowHandlers = () => {
 }
 const addUpdateHandlers = () => {
   $('#update').on('submit', onUpdate)
+  $('#cancelEdit').on('click', cancelEdit)
 }
 
 module.exports = {
