@@ -68,50 +68,58 @@
 
       <!-- ADD FILL-UP BUTTON -->
       <div class="show-when-logged-in">
-        <button id="add-button" class="btn btn-primary">Add Fill-Up Details</button>
+        <div class="col-md-8">
+          <button id="add-button" class="btn btn-primary">Add Fill-Up Details</button>
+        </div>
       </div>
 
       <!-- ADD FILL-UP FORM -->
       <div class="add-fill-up">
-        <form id="add-fill-up">
-          <fieldset>
-            <legend>Add fill-up details</legend>
-            <!-- id is new (in n3 places) and needs to be tested-->
-            <input type="text" name="fill_up[date]" placeholder="Date (yyyy-mm-dd)" required
-            pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10" id="date">
-            <input type="text" name="fill_up[mileage]" placeholder="Current Mileage" maxlength="6" id="mileage">
-            <input type="text" name="fill_up[gallons]" placeholder="Gallons" required pattern="\d*\.?\d{1,2}" maxlength="5" id="gallons">
-            <input type="text" name="fill_up[price]" placeholder="Price" maxlength="6" id="price">
+        <div class="col-md-8">
+          <form id="add-fill-up">
+            <fieldset>
+              <legend>Add fill-up details</legend>
+              <!-- id is new (in n3 places) and needs to be tested-->
+              <input type="text" name="fill_up[date]" placeholder="Date (yyyy-mm-dd)" required
+              pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10" id="date">
+              <input type="text" name="fill_up[mileage]" placeholder="Current Mileage" maxlength="6" id="mileage">
+              <input type="text" name="fill_up[gallons]" placeholder="Gallons" required pattern="\d*\.?\d{1,2}" maxlength="5" id="gallons">
+              <input type="text" name="fill_up[price]" placeholder="Price" maxlength="6" id="price">
 
-            <input type="submit" name="submit" value="Submit">
-            <button type="button" class="btn btn-secondary" id="cancelAdd">Cancel</button>
-          </fieldset>
-        </form>
+              <input type="submit" name="submit" value="Submit">
+              <button type="button" class="btn btn-secondary" id="cancelAdd">Cancel</button>
+            </fieldset>
+          </form>
+        </div>
       </div>
       <!-- END ADD FORM -->
 
       <!-- EDIT FORM -->
       <div class = "update-form">
-        <form id="update">
-          <fieldset>
-            <legend>Make changes below and select "Update" when finished</legend>
-            <div style = "display: none;"><input type="text" name="fill_up[id]"></div>
-            <div>Date: <input type="text" name="fill_up[date]"></div>
-            <div>Mileage: <input type="text" name="fill_up[mileage]"></div>
-            <div>Gallons: <input type="text" name="fill_up[gallons]"></div>
-            <div>Price: <input type="text" name="fill_up[price]"></div>
+        <div class="col-md-8">
+          <form id="update">
+            <fieldset>
+              <legend>Make changes below and select "Update" when finished</legend>
+              <div style = "display: none;"><input type="text" name="fill_up[id]"></div>
+              <div>Date: <input type="text" name="fill_up[date]"></div>
+              <div>Mileage: <input type="text" name="fill_up[mileage]"></div>
+              <div>Gallons: <input type="text" name="fill_up[gallons]"></div>
+              <div>Price: <input type="text" name="fill_up[price]"></div>
 
-            <div><input type="submit" name="submit" value="Update"></div>
-            <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
-          </fieldset>
-        </form>
+              <div><input type="submit" name="submit" value="Update"></div>
+              <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+            </fieldset>
+          </form>
+        </div>
       </div>
       <!-- END EDIT FORM -->
 
       <br>
 
-      <div id="content" class="content">
-        <h3 class="table-name">Recent Fill-Ups</h3>
+      <div class="col-md-8">
+        <div id="content" class="content">
+          <h3 class="table-name">Recent Fill-Ups</h3>
+        </div>
       </div>
 
         <!--MODALS ////////////////////////////////////// -->
