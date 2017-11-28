@@ -5,6 +5,14 @@ const showFillUpsTemplate = require('../templates/fill-up-listing.handlebars')
 
 const getFillUpsSuccess = (data) => {
   clearFillUps()
+  ///////////////////////////////////////
+  data.fill_ups.forEach(function (obj) {
+    obj.mpg = (obj.mileage / obj.gallons).toFixed(2)
+    console.log('obj.mpg is', obj.mpg)
+    console.log('data.fill_ups is', data.fill_ups)
+    return obj.mpg
+  })
+  ///////////////////////////////////////
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
@@ -13,14 +21,6 @@ const getFillUpsSuccess = (data) => {
   } else {
     $('#message').text('')
     // $('.table-name').show()
-    ///////////////////////////////////////
-
-    data.fill_ups.forEach(function (obj) {
-      obj.mpg = (obj.mileage / obj.gallons).toFixed(2)
-      console.log('obj.mpg is', obj.mpg)
-      console.log('data.fill_ups is', data.fill_ups)
-    })
-    ///////////////////////////////////////
     $('.content').show()
   }
 }
