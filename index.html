@@ -68,14 +68,11 @@
 
       <!-- ADD FILL-UP BUTTON -->
       <div class="show-when-logged-in">
-        <div class="col-md-8">
-          <button id="add-button" class="btn btn-primary">Add Fill-Up Details</button>
-        </div>
+          <button id="add-button" class="btn btn-primary add-button">Add Fill-Up Details</button>
       </div>
 
       <!-- ADD FILL-UP FORM -->
       <div class="add-fill-up">
-        <div class="col-md-8">
           <form id="add-fill-up">
             <fieldset>
               <legend>Add fill-up details</legend>
@@ -87,16 +84,17 @@
               <input type="text" name="fill_up[price]" placeholder="Price" maxlength="6" id="price">
 
               <input type="submit" name="submit" value="Submit">
+              <br>
+              <br>
+              <br>
               <button type="button" class="btn btn-secondary" id="cancelAdd">Cancel</button>
             </fieldset>
           </form>
-        </div>
       </div>
       <!-- END ADD FORM -->
 
       <!-- EDIT FORM -->
       <div class = "update-form">
-        <div class="col-md-8">
           <form id="update">
             <fieldset>
               <legend>Make changes below and select "Update" when finished</legend>
@@ -110,17 +108,14 @@
               <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
             </fieldset>
           </form>
-        </div>
       </div>
       <!-- END EDIT FORM -->
 
       <br>
 
-      <div class="col-md-8">
         <div id="content" class="content">
           <!-- <h3>Recent Fill-Ups</h3> -->
         </div>
-      </div>
 
         <!--MODALS ////////////////////////////////////// -->
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
