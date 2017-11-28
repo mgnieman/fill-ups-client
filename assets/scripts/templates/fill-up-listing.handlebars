@@ -1,3 +1,20 @@
+<!-- <script>
+  $(document).ready() => {
+    handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+
+        return {
+            "+": lvalue + rvalue,
+            "-": lvalue - rvalue,
+            "*": lvalue * rvalue,
+            "/": lvalue / rvalue,
+            "%": lvalue % rvalue
+        }[operator];
+    });
+  }
+</script> -->
+
 <table class="table table-responsive table-condensed table-bordered">
   <h4 class="table-title">Recent Fill-Ups</h4>
   <thead>
@@ -5,17 +22,22 @@
       <th class="th">Date</th>
       <th class="th">Mileage</th>
       <th class="th">Gallons</th>
+      <th class="th">MPG since last fill-up</th>
       <th class="th">Price</th>
       <th class="th">Actions</th>
     </tr>
   </thead>
   <tbody>
+
     {{#each fill_ups as |fill_up|}}
 
       <tr data-id="{{fill_up.id}}">
         <td class = "fill_up-date">{{fill_up.date}}</td>
         <td class = "fill_up-mileage">{{fill_up.mileage}}</td>
         <td class = "fill_up-gallons">{{fill_up.gallons}}</td>
+
+        <td class = "fill_up-mpg">{{fillups.[@index+1].mileage}}</td>
+
         <td class = "fill_up-price">{{fill_up.price}}</td>
         <td>
           <button data-id="{{fill_up.id}}" class="editFillUpButton btn btn-info">Edit</button>

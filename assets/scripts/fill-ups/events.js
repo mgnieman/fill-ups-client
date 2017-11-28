@@ -78,10 +78,6 @@ const addHandlers = () => {
   $('#signupModal').on('hidden.bs.modal', clearSignUpForm)
   $('#passwordModal').on('hidden.bs.modal', clearChangePassForm)
   $('#cancelAdd').on('click', cancelAdd)
-
-  // PROBABLY DON'T NEED THIS
-  // $('#getFillUpsButton').on('click', getFillUps)
-  //
 }
 const addRowHandlers = () => {
   $('.deleteFillUpButton').on('click', onDeleteFillUp)
