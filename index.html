@@ -74,11 +74,15 @@
             <fieldset>
               <legend>Add fill-up details</legend>
               <!-- id is new (in n3 places) and needs to be tested-->
-              <input type="text" name="fill_up[date]" placeholder="Date (yyyy-mm-dd)" required
-              pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10" id="date">
-              <input type="text" name="fill_up[mileage]" placeholder="Current Mileage" required pattern="^\d+$" maxlength="6" id="mileage">
-              <input type="text" name="fill_up[gallons]" placeholder="Gallons" required pattern="\d*\.?\d{1,2}" maxlength="5" id="gallons">
-              <input type="text" name="fill_up[price]" placeholder="Price ($)" required pattern="^\d+(?:\.\d{0,2})?$" maxlength="6" id="price">
+              <div>Date: <input type="text" name="fill_up[date]" placeholder="(yyyy-mm-dd)" required
+              pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10" id="date"></div>
+              <br>
+              <div>Mileage: <input type="text" name="fill_up[mileage]" placeholder="(xxxxxx)" required pattern="^\d+$" maxlength="6" id="mileage"></div>
+              <br>
+              <div>Gallons: <input type="text" name="fill_up[gallons]" placeholder="(xxxxx)" required pattern="\d*\.?\d{1,2}" maxlength="5" id="gallons"></div>
+              <br>
+              <div>Price: $<input type="text" name="fill_up[price]" placeholder="(xx.xx)" required pattern="^\d+(?:\.\d{0,2})?$" maxlength="6" id="price"></div>
+              <br>
 
               <input type="submit" name="submit" value="Submit">
               <br>
@@ -101,7 +105,7 @@
               <br>
               <div>Gallons: <input type="text" name="fill_up[gallons]"></div>
               <br>
-              <div>Price: <input type="text" name="fill_up[price]"></div>
+              <div>Price: $<input type="text" name="fill_up[price]"></div>
               <br>
               <div><input type="submit" name="submit" value="Update"></div>
               <br>
