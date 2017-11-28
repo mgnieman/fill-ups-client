@@ -23,30 +23,40 @@
 
       <body class="container-fluid">
 
+        <!-- <nav class="navbar navbar-default"> -->
       <header class="header-login-signup">
 
         <div class="header-limiter">
 
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+  <!-- <div class="container-fluid"> -->
 
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
       		<h1><a href="#"><span>Fill-Er-Up</span></a></h1>
 
-          <div class="collapse navbar-collapse">
+          <div class="collapse navbar-collapse" id="myNavbar">
         		<ul class="nav navbar-nav navbar-right">
-              <li class="hide-when-logged-in"><a href="#signupModal" data-toggle="modal">Create Account</a></li>
-              <li class="hide-when-logged-in"><a href="#loginModal" data-toggle="modal">Login</a></li>
+              <li class="hide-when-logged-in"><a href="#signupModal" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li class="hide-when-logged-in"><a href="#loginModal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
               <li class="show-when-logged-in"><a href="#" data-toggle="modal" data-target="#passwordModal">Change Password</a></li>
               <li class="show-when-logged-in"><a href="#" id="sign-out" class="signOutLink">Logout</a></li>
         		</ul>
           <!-- navbar-collapse -->
           </div>
+
+          <!-- container-fluid -->
+        <!-- </div> -->
+
         <!-- header-limiter -->
         </div>
       </header>
+
+    <!-- </nav> -->
 
       <br>
 
@@ -66,9 +76,9 @@
               <!-- id is new (in n3 places) and needs to be tested-->
               <input type="text" name="fill_up[date]" placeholder="Date (yyyy-mm-dd)" required
               pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10" id="date">
-              <input type="text" name="fill_up[mileage]" placeholder="Current Mileage" maxlength="6" id="mileage">
+              <input type="text" name="fill_up[mileage]" placeholder="Current Mileage" required pattern="^\d+$" maxlength="6" id="mileage">
               <input type="text" name="fill_up[gallons]" placeholder="Gallons" required pattern="\d*\.?\d{1,2}" maxlength="5" id="gallons">
-              <input type="text" name="fill_up[price]" placeholder="Price" maxlength="6" id="price">
+              <input type="text" name="fill_up[price]" placeholder="Price ($)" required pattern="^\d+(?:\.\d{0,2})?$" maxlength="6" id="price">
 
               <input type="submit" name="submit" value="Submit">
               <br>
