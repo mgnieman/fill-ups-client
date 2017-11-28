@@ -1,6 +1,6 @@
 <!-- <script>
-  $(document).ready() => {
-    handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+$(document).ready(function() {
+    Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         lvalue = parseFloat(lvalue);
         rvalue = parseFloat(rvalue);
 
@@ -12,7 +12,7 @@
             "%": lvalue % rvalue
         }[operator];
     });
-  }
+  })
 </script> -->
 
 <table class="table table-responsive table-condensed table-bordered">
@@ -35,9 +35,7 @@
         <td class = "fill_up-date">{{fill_up.date}}</td>
         <td class = "fill_up-mileage">{{fill_up.mileage}}</td>
         <td class = "fill_up-gallons">{{fill_up.gallons}}</td>
-
-        <td class = "fill_up-mpg">{{fillups.[@index+1].mileage}}</td>
-
+        <td class = "fill_up-mpg">{{fill_up.mpg}}</td>
         <td class = "fill_up-price">{{fill_up.price}}</td>
         <td>
           <button data-id="{{fill_up.id}}" class="editFillUpButton btn btn-info">Edit</button>

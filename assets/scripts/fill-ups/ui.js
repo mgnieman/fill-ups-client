@@ -7,21 +7,20 @@ const getFillUpsSuccess = (data) => {
   clearFillUps()
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
-
-  ///////////////////////////////////////
-
-  data.fill_ups.forEach(function (obj) {
-    obj.mpg = obj.mileage / obj.gallons
-    console.log('obj.mpg is', obj.mpg)
-    console.log('data.fill_ups is', data.fill_ups)
-  })
-  ///////////////////////////////////////
   if (data.fill_ups.length === 0) {
     $('.content').hide()
     $('#message').text('Click the Add Fill-Up button to get started')
   } else {
     $('#message').text('')
     // $('.table-name').show()
+    ///////////////////////////////////////
+
+    data.fill_ups.forEach(function (obj) {
+      obj.mpg = (obj.mileage / obj.gallons).toFixed(2)
+      console.log('obj.mpg is', obj.mpg)
+      console.log('data.fill_ups is', data.fill_ups)
+    })
+    ///////////////////////////////////////
     $('.content').show()
   }
 }
