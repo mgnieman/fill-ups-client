@@ -23,19 +23,6 @@ const calculateMPG = function (data) {
   })
 }
 
-const calculateYTDTotal = function (data) {
-  let sum = 0
-  data.fill_ups.forEach(function (obj, index, arr) {
-    const date = data.fill_ups[index].date
-    const year = date.substr(0, 4)
-    if (year === '2017') {
-      // currentYear.push(data.fill_ups[index].price)
-      sum += +data.fill_ups[index].price
-      $('#ytd').text('Total spent this year:  ' + sum.toFixed(2))
-    }
-  })
-}
-
 const calculateAllTimeTotal = function (data) {
   data.fill_ups.reduce(function (total, val) {
     const sum = total + val.price
@@ -44,12 +31,39 @@ const calculateAllTimeTotal = function (data) {
   }, 0)
 }
 
+const calculateYTDTotal = function (data) {
+  let sum = 0
+  data.fill_ups.forEach(function (obj, index) {
+    const date = data.fill_ups[index].date
+    const year = date.substr(0, 4)
+    if (year === '2017') {
+      sum += +data.fill_ups[index].price
+      $('#ytd').text('Total spent this year:  ' + sum.toFixed(2))
+    }
+  })
+  return sum.toFixed(2)
+}
+
+const calculateMonthlyAvg = function (data) {
+  data.fill_ups.forEach(function (obj, index) {
+    const mostRecentDate = data.fill_ups[0].date
+    const mostRecentMonth = mostRecentDate.substr(5, 2)
+    const avg = calculateYTDTotal(data) / (+mostRecentMonth - 1)
+    console.log('YTD monthly average in current year', avg.toFixed(2))
+    $('#monthly-average').text('Monthly average this year:  ' + avg.toFixed(2))
+  })
+  // count the number of months since the first entry;
+  // i.e. numMonths = currentMonth + (12 - firstMonthFirstYear) + 12(currentYear - firstYear - 1)
+  // allTimeMonthlyAvg = allTimeTotal / numMonths
+}
+
 const getFillUpsSuccess = (data) => {
   clearFillUps()
   sortRevChron(data)
   calculateMPG(data)
   calculateAllTimeTotal(data)
-  calculateYTDTotal(data)
+  // calculateYTDTotal(data)
+  calculateMonthlyAvg(data)
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {

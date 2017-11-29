@@ -38,4 +38,4 @@ blah blah blah
 - [Wireframe](https://imgur.com/a/0cWVI)
 
 ### Goals for Future Versions
--
+- More specific calculation for monthy average.  Currently using (current month - 1)
