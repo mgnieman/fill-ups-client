@@ -23,9 +23,12 @@ const calculateMPG = function (data) {
   })
 }
 
-const calculateTotalSpent = function (data) {
-  data.fill_ups.reduce(function (total, val, index) {
-    return total + val.price
+const calculateAllTimeTotal = function (data) {
+  data.fill_ups.reduce(function (total, val) {
+    const sum = total + val.price
+    $('#all-time').text('Total spent all-time:  ' + sum)
+    //
+    return sum
   }, 0)
 }
 
@@ -33,7 +36,8 @@ const getFillUpsSuccess = (data) => {
   clearFillUps()
   sortRevChron(data)
   calculateMPG(data)
-  calculateTotalSpent(data)
+  calculateAllTimeTotal(data)
+  // displayAllTimeTotal()
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
@@ -117,7 +121,6 @@ module.exports = {
   addFillUpSuccess,
   deleteFillUpSuccess,
   triggerEditForm,
-  // editFillUpSuccess,
   updateFillUpSuccess,
   failure
 }
