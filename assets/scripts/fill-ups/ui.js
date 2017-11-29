@@ -3,11 +3,16 @@
 const showFillUpsTemplate = require('../templates/fill-up-listing.handlebars')
 // const store = require('../store')
 
-const getFillUpsSuccess = (data) => {
-  clearFillUps()
+const clearFillUps = () => {
+  $('.content').empty()
+}
+const sortRevChron = function (data) {
   data.fill_ups.sort(function (a, b) {
     return Date.parse(b.date) - Date.parse(a.date)
   })
+}
+
+const calculateMPG = function (data) {
   data.fill_ups.forEach(function (obj, index, arr) {
     if (index === arr.length - 1) {
       obj.mpg = 'n/a'
@@ -16,7 +21,21 @@ const getFillUpsSuccess = (data) => {
       obj.mpg = (miles / obj.gallons).toFixed(1)
     }
   })
+}
 
+const calculateTotalSpent = function (data) {
+  data.fill_ups.reduce(function (total, val, index) {
+    val = data.fill_ups[index].price
+    return total + val
+  }, 0)
+  // data.fill_ups[1].price)
+}
+
+const getFillUpsSuccess = (data) => {
+  clearFillUps()
+  sortRevChron(data)
+  calculateMPG(data)
+  calculateTotalSpent(data)
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
@@ -24,13 +43,8 @@ const getFillUpsSuccess = (data) => {
     $('#message').text('Click the Add Fill-Up button to get started')
   } else {
     $('#message').text('')
-    // $('.table-name').show()
     $('.content').show()
   }
-}
-
-const clearFillUps = () => {
-  $('.content').empty()
 }
 
 const displayAddForm = () => {
