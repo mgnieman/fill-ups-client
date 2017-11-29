@@ -29,6 +29,7 @@ const signOutSuccess = function () {
   fillUpsUi.clearFillUps()
   $('.show-when-logged-in').hide()
   $('.content').hide()
+  $('.total-spent').hide()
   $('.add-fill-up').hide()
   $('.update-form').hide()
   $('.hide-when-logged-in').show()
