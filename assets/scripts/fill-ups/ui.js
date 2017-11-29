@@ -5,14 +5,20 @@ const showFillUpsTemplate = require('../templates/fill-up-listing.handlebars')
 
 const getFillUpsSuccess = (data) => {
   clearFillUps()
-  ///////////////////////////////////////
-  data.fill_ups.forEach(function (obj) {
-    obj.mpg = (obj.mileage / obj.gallons).toFixed(2)
-    console.log('obj.mpg is', obj.mpg)
-    console.log('data.fill_ups is', data.fill_ups)
-    return obj.mpg
+  data.fill_ups.sort(function (a, b) {
+    return Date.parse(a.date) - Date.parse(b.date)
   })
-  ///////////////////////////////////////
+  const mpgArray = []
+  data.fill_ups.forEach(function (obj) {
+    mpgArray.push(obj.mileage)
+    if (mpgArray.length <= 1) {
+      obj.mpg = 'n/a'
+    } else {
+      const miles = mpgArray[mpgArray.length - 1] - mpgArray[mpgArray.length - 2]
+      obj.mpg = (miles / obj.gallons).toFixed(1)
+    }
+  })
+
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
