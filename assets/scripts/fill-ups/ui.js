@@ -23,11 +23,23 @@ const calculateMPG = function (data) {
   })
 }
 
+const calculateYTDTotal = function (data) {
+  let sum = 0
+  data.fill_ups.forEach(function (obj, index, arr) {
+    const date = data.fill_ups[index].date
+    const year = date.substr(0, 4)
+    if (year === '2017') {
+      // currentYear.push(data.fill_ups[index].price)
+      sum += +data.fill_ups[index].price
+      $('#ytd').text('Total spent this year:  ' + sum.toFixed(2))
+    }
+  })
+}
+
 const calculateAllTimeTotal = function (data) {
   data.fill_ups.reduce(function (total, val) {
     const sum = total + val.price
-    $('#all-time').text('Total spent all-time:  ' + sum)
-    //
+    $('#all-time').text('Total spent all-time:  ' + sum.toFixed(2))
     return sum
   }, 0)
 }
@@ -37,7 +49,7 @@ const getFillUpsSuccess = (data) => {
   sortRevChron(data)
   calculateMPG(data)
   calculateAllTimeTotal(data)
-  // displayAllTimeTotal()
+  calculateYTDTotal(data)
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
@@ -98,15 +110,9 @@ const triggerEditForm = (event) => {
 }
 
 const updateFillUpSuccess = () => {
-  // clearFillUps()
   $('#update')[0].reset()
   $('.update-form').hide()
-
-  // $('.add-fill-up').hide()
   $('#add-button').show()
-
-  // $('#getFillUpsButton').click()
-
   $('#message').text('Your changes have been saved')
 }
 
