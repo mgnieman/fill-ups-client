@@ -25,10 +25,8 @@ const calculateMPG = function (data) {
 
 const calculateTotalSpent = function (data) {
   data.fill_ups.reduce(function (total, val, index) {
-    val = data.fill_ups[index].price
-    return total + val
+    return total + val.price
   }, 0)
-  // data.fill_ups[1].price)
 }
 
 const getFillUpsSuccess = (data) => {
