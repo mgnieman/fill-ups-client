@@ -63,12 +63,14 @@ const cancelAdd = () => {
   $('.add-fill-up').hide()
   $('#add-button').show()
   $('.content').show()
+  $('.total-spent').show()
 }
 const cancelEdit = () => {
   $('#update')[0].reset()
   $('.update-form').hide()
   $('#add-button').show()
   $('.content').show()
+  $('.total-spent').show()
 }
 
 const addHandlers = () => {

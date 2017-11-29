@@ -48,7 +48,7 @@ const calculateMonthlyAvg = function (data) {
   data.fill_ups.forEach(function (obj, index) {
     const mostRecentDate = data.fill_ups[0].date
     const mostRecentMonth = mostRecentDate.substr(5, 2)
-    const avg = calculateYTDTotal(data) / (+mostRecentMonth - 1)
+    const avg = calculateYTDTotal(data) / (+mostRecentMonth)
     console.log('YTD monthly average in current year', avg.toFixed(2))
     $('#monthly-average').text('Monthly average this year:  ' + avg.toFixed(2))
   })
@@ -79,6 +79,7 @@ const displayAddForm = () => {
   $('#add-button').hide()
   $('.update-form').hide()
   $('.content').hide()
+  $('.total-spent').hide()
   $('.add-fill-up').show()
 }
 
@@ -87,6 +88,7 @@ const addFillUpSuccess = (data) => {
   $('#add-fill-up')[0].reset()
   $('.add-fill-up').hide()
   $('#add-button').show()
+  $('.total-spent').show()
 }
 
 const deleteFillUpSuccess = (index) => {
@@ -99,6 +101,7 @@ const triggerEditForm = (event) => {
   $('#add-button').hide()
   $('.add-fill-up').hide()
   $('.content').hide()
+  $('.total-spent').hide()
   $('.update-form').show()
   const tr = $(event.target).parent().parent()
 
@@ -127,6 +130,7 @@ const updateFillUpSuccess = () => {
   $('#update')[0].reset()
   $('.update-form').hide()
   $('#add-button').show()
+  $('.total-spent').show()
   $('#message').text('Your changes have been saved')
 }
 
