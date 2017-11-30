@@ -30,15 +30,23 @@ const calculateAllTimeTotal = function (data) {
     return sum
   }, 0)
 }
+function yearNotCurrent (currentValue) {
+  return currentValue !== '2017'
+}
 
 const calculateYTDTotal = function (data) {
   let sum = 0
+  const yearArray = []
   data.fill_ups.forEach(function (obj, index) {
     const date = data.fill_ups[index].date
     const year = date.substr(0, 4)
     if (year === '2017') {
       sum += +data.fill_ups[index].price
       $('#ytd').text('Total spent this year:  $' + sum.toFixed(2))
+    }
+    yearArray.push(year)
+    if (yearArray.every(yearNotCurrent)) {
+      $('#ytd').text('Total spent this year:  $' + 0)
     }
   })
   return sum.toFixed(2)
@@ -61,16 +69,17 @@ const getFillUpsSuccess = (data) => {
   sortRevChron(data)
   calculateMPG(data)
   calculateAllTimeTotal(data)
-  // calculateYTDTotal(data)
   calculateMonthlyAvg(data)
   const showFillUpsHtml = showFillUpsTemplate({ fill_ups: data.fill_ups })
   $('.content').append(showFillUpsHtml).show()
   if (data.fill_ups.length === 0) {
     $('.content').hide()
+    $('.total-spent').hide()
     $('#message').text('Click the Add Fill-Up button to get started')
   } else {
     $('#message').text('')
     $('.content').show()
+    $('.total-spent').show()
   }
 }
 
