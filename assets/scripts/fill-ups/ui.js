@@ -26,7 +26,7 @@ const calculateMPG = function (data) {
 const calculateAllTimeTotal = function (data) {
   data.fill_ups.reduce(function (total, val) {
     const sum = total + val.price
-    $('#all-time').text('Total spent all-time:  ' + sum.toFixed(2))
+    $('#all-time').text('Total spent all-time:  $' + sum.toFixed(2))
     return sum
   }, 0)
 }
@@ -38,7 +38,7 @@ const calculateYTDTotal = function (data) {
     const year = date.substr(0, 4)
     if (year === '2017') {
       sum += +data.fill_ups[index].price
-      $('#ytd').text('Total spent this year:  ' + sum.toFixed(2))
+      $('#ytd').text('Total spent this year:  $' + sum.toFixed(2))
     }
   })
   return sum.toFixed(2)
@@ -49,7 +49,7 @@ const calculateMonthlyAvg = function (data) {
     const mostRecentDate = data.fill_ups[0].date
     const mostRecentMonth = mostRecentDate.substr(5, 2)
     const avg = calculateYTDTotal(data) / (+mostRecentMonth)
-    $('#monthly-average').text('Monthly average this year:  ' + avg.toFixed(2))
+    $('#monthly-average').text('Average amount spent / month this year:  $' + avg.toFixed(2))
   })
   // count the number of months since the first entry;
   // i.e. numMonths = currentMonth + (12 - firstMonthFirstYear) + 12(currentYear - firstYear - 1)
