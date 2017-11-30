@@ -99,13 +99,14 @@
             <fieldset>
               <legend>Make changes below and select "Update" when finished</legend>
               <div style = "display: none;"><input type="text" name="fill_up[id]"></div>
-              <div>Date: <input type="text" name="fill_up[date]"></div>
+              <div>Date: <input type="text" name="fill_up[date]" required
+              pattern="^(\d{4})\D?(0[1-9]|1[0-2])\D?([12]\d|0[1-9]|3[01])$" maxlength="10"></div>
               <br>
-              <div>Mileage: <input type="text" name="fill_up[mileage]"></div>
+              <div>Mileage: <input type="text" name="fill_up[mileage]" required pattern="^\d+$" maxlength="6"></div>
               <br>
-              <div>Gallons: <input type="text" name="fill_up[gallons]"></div>
+              <div>Gallons: <input type="text" name="fill_up[gallons]" required pattern="\d*\.?\d{1,2}" maxlength="5"></div>
               <br>
-              <div>Price: $<input type="text" name="fill_up[price]"></div>
+              <div>Price: $<input type="text" name="fill_up[price]" required pattern="^\d+(?:\.\d{0,2})?$" maxlength="6"></div>
               <br>
               <div><input type="submit" name="submit" value="Update"></div>
               <br>
