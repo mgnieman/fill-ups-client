@@ -49,7 +49,6 @@ const calculateMonthlyAvg = function (data) {
     const mostRecentDate = data.fill_ups[0].date
     const mostRecentMonth = mostRecentDate.substr(5, 2)
     const avg = calculateYTDTotal(data) / (+mostRecentMonth)
-    console.log('YTD monthly average in current year', avg.toFixed(2))
     $('#monthly-average').text('Monthly average this year:  ' + avg.toFixed(2))
   })
   // count the number of months since the first entry;
