@@ -21,7 +21,7 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
-  $('#login-message').text('Error on sign in. Please try again.')
+  $('#login-message').text('Error on login. Please try again.')
 }
 
 const signOutSuccess = function () {
