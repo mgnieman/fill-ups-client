@@ -76,7 +76,6 @@ body {
 }
 
 /* Logo */
-
 .header-login-signup .header-limiter h1{
 	float: left;
 	font: normal 38px Cookie, Arial, Helvetica, sans-serif;
@@ -89,14 +88,12 @@ body {
 }
 
 /* The navigation links */
-
 .header-login-signup .header-limiter a {
 	color: #5CCBEC;
 	text-decoration: none;
 }
 
 /* Login/Sign up buttons */
-
 .header-login-signup .header-limiter ul {
 	font: 14px Arial, Helvetica, sans-serif;
 	list-style: none;
@@ -115,7 +112,6 @@ body {
 }
 
 /* The sign up button */
-
 .header-login-signup .header-limiter ul li:last-child a {
 	font-weight: bold;
 	background-color: #3a3c3e;
@@ -124,7 +120,6 @@ body {
 }
 
 /* Making the header responsive */
-
 @media all and (max-width: 600px) {
 
 	.header-login-signup {
@@ -152,5 +147,4 @@ body {
 	.header-login-signup .header-limiter ul {
 		display: none;
 	}
-
 }

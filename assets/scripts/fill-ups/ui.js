@@ -1,7 +1,6 @@
 'use strict'
 
 const showFillUpsTemplate = require('../templates/fill-up-listing.handlebars')
-// const store = require('../store')
 
 const clearFillUps = () => {
   $('.content').empty()
@@ -15,7 +14,7 @@ const sortRevChron = function (data) {
 const calculateMPG = function (data) {
   data.fill_ups.forEach(function (obj, index, arr) {
     if (index === arr.length - 1) {
-      obj.mpg = 'n/a'
+      obj.mpg = (obj.mileage / obj.gallons).toFixed(1)
     } else {
       const miles = obj.mileage - data.fill_ups[index + 1].mileage
       obj.mpg = (miles / obj.gallons).toFixed(1)
@@ -30,10 +29,10 @@ const calculateAllTimeTotal = function (data) {
     return sum
   }, 0)
 }
+
 function yearNotCurrent (currentValue) {
   return currentValue !== '2017'
 }
-
 const calculateYTDTotal = function (data) {
   let sum = 0
   const yearArray = []
@@ -53,7 +52,7 @@ const calculateYTDTotal = function (data) {
 }
 
 const calculateMonthlyAvg = function (data) {
-  data.fill_ups.forEach(function (obj, index) {
+  data.fill_ups.forEach(function (obj) {
     const mostRecentDate = data.fill_ups[0].date
     const mostRecentMonth = mostRecentDate.substr(5, 2)
     const avg = calculateYTDTotal(data) / (+mostRecentMonth)
@@ -92,7 +91,6 @@ const displayAddForm = () => {
 }
 
 const addFillUpSuccess = (data) => {
-  // clearFillUps()
   $('#add-fill-up')[0].reset()
   $('.add-fill-up').hide()
   $('#add-button').show()
